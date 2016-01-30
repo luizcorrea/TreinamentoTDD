@@ -10,7 +10,7 @@ namespace Business
 
         public bool Catalogar()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
