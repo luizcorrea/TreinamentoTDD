@@ -11,7 +11,10 @@ namespace BusinessTest
         [TestMethod]
         public void Deve_Catalogar_Novo_Produto_Com_Sucesso()
         {
-            var produto = new Produto();
+            var repositorio = new Mock<IRepositorioProduto>();
+            repositorio.Setup(r => r.Salvar(It.IsAny<Produto>())).Returns(true);
+
+            var produto = new Produto(repositorio.Object);
             produto.Nome = "iPhone 6S";
             Assert.IsTrue(produto.Catalogar());
         }
@@ -19,19 +22,9 @@ namespace BusinessTest
         [TestMethod]
         public void Deve_Retornar_False_Ao_Tentar_Catalogar_Um_Produto_Sem_Nome_Preenchido()
         {
-            var produto = new Produto();
-            Assert.IsFalse(produto.Catalogar());
-        }
-
-        [TestMethod]
-        public void Deve_Catalogar_Novo_Produto_Com_Sucesso_Injetando_Repositorio()
-        {
             var repositorio = new Mock<IRepositorioProduto>();
-            repositorio.Setup(r => r.Salvar(It.IsAny<Produto>())).Returns(true);
-
             var produto = new Produto(repositorio.Object);
-            produto.Nome = "iPhone 6s";
-            Assert.IsTrue(produto.Catalogar());
+            Assert.IsFalse(produto.Catalogar());
         }
     }
 }
