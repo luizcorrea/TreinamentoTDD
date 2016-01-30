@@ -11,6 +11,7 @@ namespace BusinessTest
         public void Deve_Catalogar_Novo_Produto_Com_Sucesso()
         {
             var produto = new Produto();
+            produto.Nome = "iPhone 6S";
             Assert.IsTrue(produto.Catalogar());
         }
 
