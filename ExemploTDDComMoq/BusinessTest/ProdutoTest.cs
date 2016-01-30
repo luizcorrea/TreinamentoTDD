@@ -7,8 +7,10 @@ namespace BusinessTest
     public class ProdutoTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Deve_Catalogar_Novo_Produto_Com_Sucesso()
         {
+            var produto = new Produto();
+            Assert.IsTrue(produto.Catalogar());
         }
     }
 }
