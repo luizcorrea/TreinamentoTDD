@@ -13,5 +13,12 @@ namespace BusinessTest
             var produto = new Produto();
             Assert.IsTrue(produto.Catalogar());
         }
+
+        [TestMethod]
+        public void Deve_Retornar_False_Ao_Tentar_Catalogar_Um_Produto_Sem_Nome_Preenchido()
+        {
+            var produto = new Produto();
+            Assert.IsFalse(produto.Catalogar());
+        }
     }
 }
