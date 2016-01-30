@@ -24,7 +24,7 @@ namespace Business
                 return false;
             }
 
-            return true;
+            return repositorio.Salvar(this);
         }
     }
 }
