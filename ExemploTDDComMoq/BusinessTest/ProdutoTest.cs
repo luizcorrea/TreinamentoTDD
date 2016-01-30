@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Business;
+using Moq;
 
 namespace BusinessTest
 {
@@ -25,8 +26,10 @@ namespace BusinessTest
         [TestMethod]
         public void Deve_Catalogar_Novo_Produto_Com_Sucesso_Injetando_Repositorio()
         {
-            IRepositorioProduto repositorio;
-            var produto = new Produto(repositorio);
+            var repositorio = new Mock<IRepositorioProduto>();
+            repositorio.Setup(r => r.Salvar(It.IsAny<Produto>())).Returns(true);
+
+            var produto = new Produto(repositorio.Object);
             produto.Nome = "iPhone 6s";
             Assert.IsTrue(produto.Catalogar());
         }
