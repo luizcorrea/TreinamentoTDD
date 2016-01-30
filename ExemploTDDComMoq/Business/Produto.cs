@@ -8,10 +8,6 @@ namespace Business
 
         public string Nome { get; set; }
 
-        public Produto()
-        {
-        }
-
         public Produto(IRepositorioProduto repositorio)
         {
             this.repositorio = repositorio;
