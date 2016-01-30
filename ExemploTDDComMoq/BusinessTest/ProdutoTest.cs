@@ -21,5 +21,14 @@ namespace BusinessTest
             var produto = new Produto();
             Assert.IsFalse(produto.Catalogar());
         }
+
+        [TestMethod]
+        public void Deve_Catalogar_Novo_Produto_Com_Sucesso_Injetando_Repositorio()
+        {
+            IRepositorioProduto repositorio;
+            var produto = new Produto(repositorio);
+            produto.Nome = "iPhone 6s";
+            Assert.IsTrue(produto.Catalogar());
+        }
     }
 }
