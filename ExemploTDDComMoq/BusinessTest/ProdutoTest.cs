@@ -26,5 +26,11 @@ namespace BusinessTest
             var produto = new Produto(repositorio.Object);
             Assert.IsFalse(produto.Catalogar());
         }
+
+		  [TestMethod]
+		  public void Teste_Unitario_Nova_Feature()
+		  {
+			  
+		  }
     }
 }
